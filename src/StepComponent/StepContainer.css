@@ -1,0 +1,43 @@
+.StepContainer{
+background-color: white;
+color: black;
+}
+
+#pasos{
+    color: var(--sds-color-text-default-default);
+text-align: center;
+/* Title Hero */
+
+font-family: "Sora", sans-serif;
+font-size: 32px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+text-transform: uppercase;
+}
+
+
+
+.StepContainer .stepText{
+padding: 0 1rem 1rem 1rem;
+text-align: center;
+font-family: "Roboto", sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin: 0 7rem;
+color: #757575;
+}
+
+
+@media (max-width: 767px) {
+
+
+    .StepContainer .stepText{ 
+
+        margin: 0 1rem;
+        font-size: 12px;
+
+    }
+}

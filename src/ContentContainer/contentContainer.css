@@ -1,0 +1,133 @@
+
+@media (max-width: 768px) { /* Ajusta para tablets y móviles */
+
+
+.heroContainer figure {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: relative; 
+}
+
+.heroContainer img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+}
+
+
+/* Círculo invertido en la parte inferior */
+.shadownHero {
+
+    position: absolute;
+    width: 100%; /* Ajusta el tamaño del círculo */
+    height: 50px; /* Ajusta la altura para que parezca medio círculo */
+    background-color: black; /* Cambia el color según necesites */
+    bottom: -25px; /* Ajusta para que sobresalga */
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    border-radius: 50% 50% 0% 0%; /* Hace que solo la parte superior sea curva */
+
+}
+
+.curvedBottom {
+
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Ajusta según necesites */
+    background-color: black;
+    border-top-left-radius: 0% 10px;
+    border-top-right-radius: 0% 30px;
+
+}
+
+
+.heroContainer {
+
+    background-color: black;
+
+}
+
+
+
+
+.heroContent{
+padding: 24px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 24px;
+align-self: stretch;
+}
+
+.itemsWrapper {
+    flex-wrap: nowrap;
+    justify-content: center;
+    display: block;
+  }
+
+}
+
+
+
+.HeroImg{
+    width: 100% ;
+    height: 34rem ; /* Updated height to 100% */
+    object-fit: cover;
+    object-position: 100% 30%;
+}
+
+.heroContainer {
+    background-color: black;
+}
+
+
+.fechaContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    color: white;
+}
+
+
+.text-content {
+    color: var(--Text-Primary, #FFF);
+    text-align: center;
+    font-family: Sora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.heroContent{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    }
+    
+    .itemsWrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        position: relative;
+      }
+      
+      #faq-items {
+
+        display: flex;
+        justify-content: center;
+        gap: 6rem;
+      }

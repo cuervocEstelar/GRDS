@@ -1,0 +1,138 @@
+.FaqDropdownContainer{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 1rem 0rem;
+
+}
+.searchIconFaq{
+    font-size: 16px;
+    color: #F593CD;
+    cursor: pointer;
+}
+
+.FaqDropdownContainer h2{
+    color: #F593CD;
+    font-size: 18px;
+    margin: 10px;
+}
+
+
+
+
+.faqContainer {
+    max-width: 900px;
+    margin: auto;
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+  }
+  
+  .faqTitle {
+    text-align: center;
+    color: pink;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .faqItem {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  .faqHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  
+  .faqToggle {
+ 
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: gray;
+    background-color: #D9D9D999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    border-radius: 5px;
+
+  }
+
+  
+
+  .pink{
+    background-color: #F593CD;
+  }
+  
+  .faqContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  
+  .faqContent.open {
+    max-height: 200px; /* suficiente para el texto */
+    opacity: 1;
+  }
+  
+  
+  .faqAnswer {
+    margin-top: 10px;
+    color: gray;
+    font-size: 14px;
+  }
+  
+.FaRegQuestionCircle{
+
+  width: 32px;
+  height: 32px;
+  color: #F593CD;
+}
+
+  
+
+  @media (max-width: 768px) { /* Ajusta para tablets y móviles */
+
+    .faqContainer {
+      max-width: 350px;
+      margin: auto;
+      background: black;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+
+    .faqItem {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      color: black;
+      transition: all 0.3s ease-in-out;
+      width: 100%;
+    }
+
+
+  }
+
+
+  

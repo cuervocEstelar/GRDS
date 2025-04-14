@@ -1,0 +1,25 @@
+.TabsContainer{
+    display: flex;
+    color: black ;
+    justify-content: space-around;
+    gap: 1em;
+    padding: 1rem;
+    border-bottom: 1px solid #D9D9D9 ;
+}
+
+.tab-item{
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.tab-item a {
+    color: var(--Text-Secondary, #000);
+    text-align: center;
+    text-decoration: none;
+    /* Text md/Semibold */
+    font-family: var(--Font-family-font-family-body, Inter);
+    font-size: var(--Font-size-text-md, 16px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--Line-height-text-md, 24px); /* 150% */
+}

@@ -1,0 +1,31 @@
+
+@media (max-width: 768px) { /* Ajusta para tablets y móviles */
+    a{
+   
+    color: #D6DBEA;   
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #FFFFFF;
+}
+
+
+
+
+.fechaContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.fechaContainer .iconoCalendario {
+    width: 24px; /* Ajusta según necesites */
+    height: 24px;
+    margin-right: 8px;
+}}

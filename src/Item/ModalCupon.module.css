@@ -1,0 +1,375 @@
+.ticketOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f78ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.ticketModal {
+
+  position: relative;
+  background: transparent;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 340px;
+  text-align: center;
+  top: -40px;
+  font-family: 'Inter', sans-serif;
+
+}
+
+.ticketCard {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticketCard::before,
+.ticketCard::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #f78ccc;
+  border-radius: 50%;
+  top: 59%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.ticketCard::before {
+  left: -15px;
+}
+
+.ticketCard::after {
+  right: -15px;
+}
+
+.ticketHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+}
+
+.ticketTitle {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  color: black;
+  font-family: "Sora", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.ticketName {
+  color: var(--Text-Tertiary, #1E1E1E);
+  text-align: center;
+  
+  /* Body Base */
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+  margin: 0;
+}
+
+.ticketSub {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ticketList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+  text-align: left;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ticketList li::before {
+  content: "•";
+  color: black;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.ticketDivider {
+  border-top: 1px dashed #aaa;
+  margin: 1rem 0;
+}
+
+.ticketQR {
+  width: 100px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.ticketCodeBox {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.ticketCodeBox span{
+text-align: start;
+}
+
+.ticketCodeLine{
+  display: flex;
+  gap: 5px;
+  background-color: #FFBDE4;
+  padding: 5px;
+  border-radius: 5px;}
+
+.ticketCode{
+display: flex;
+justify-content: center;
+}
+
+.ticketCodeBox span {
+  color: #666;
+  font-weight: normal;
+}
+
+.ticketFooter {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.ticketClose {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  padding: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.FaTimes{
+  color: #f78ccc;
+  font-size: 20px;
+}
+
+
+
+  @media (max-width: 767px) {
+
+    .ticketOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #f78ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .ticketModal {
+  
+      position: relative;
+      background: transparent;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 340px;
+      text-align: center;
+      top: -40px;
+      font-family: 'Inter', sans-serif;
+  
+    }
+    
+    .ticketCard {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ticketCard::before,
+    .ticketCard::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: #f78ccc;
+      border-radius: 50%;
+      top: 59%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    
+    .ticketCard::before {
+      left: -15px;
+    }
+    
+    .ticketCard::after {
+      right: -15px;
+    }
+    
+    .ticketHeader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+  
+    }
+    
+    .ticketTitle {
+      font-size: 24px;
+      text-align: center;
+      font-weight: bold;
+      margin: 0;
+      text-transform: uppercase;
+      color: black;
+      font-family: "Sora", sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+    
+    .ticketName {
+      color: var(--Text-Tertiary, #1E1E1E);
+      text-align: center;
+      
+      /* Body Base */
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 22.4px */
+      margin: 0;
+    }
+    
+    .ticketSub {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    
+    .ticketList {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.2rem;
+      text-align: left;
+      color: #333;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    
+    .ticketList li::before {
+      content: "•";
+      color: black;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+    
+    .ticketDivider {
+      border-top: 1px dashed #aaa;
+      margin: 1rem 0;
+    }
+    
+    .ticketQR {
+      width: 100px;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+    
+    .ticketCodeBox {
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  
+    .ticketCodeBox span{
+    text-align: start;
+    }
+  
+    .ticketCodeLine{
+      display: flex;
+      gap: 5px;
+      background-color: #FFBDE4;
+      padding: 5px;
+      border-radius: 5px;}
+    
+  .ticketCode{
+    display: flex;
+    justify-content: center;
+  }
+  
+    .ticketCodeBox span {
+      color: #666;
+      font-weight: normal;
+    }
+    
+    .ticketFooter {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    
+    .ticketClose {
+      position: absolute;
+      bottom: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      padding: 24px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .FaTimes{
+      color: #f78ccc;
+      font-size: 20px;
+    }
+  
+  
+
+  }

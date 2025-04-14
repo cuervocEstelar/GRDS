@@ -1,0 +1,34 @@
+
+@media (max-width: 768px) { /* Ajusta para tablets y móviles */
+.BrandContainer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.600rem;
+    color: black;
+    position: sticky;
+
+}
+
+}
+.BrandContainer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.600rem;
+    color: black;
+    position: sticky;
+}
+
+
+.brand-logo-Provider{
+    height: 30px;
+    width: 80px;
+}
+
+.brand-logo-Estelarbet{
+    height: 32px;
+    width:  32px;
+}
