@@ -1,7 +1,7 @@
 import React from 'react'
 import Title from '../ItemsContent/Title'
 import HeroComponent from '../HeroComponent/HeroComponent'
-import './ContentContainer.css'
+import './contentContainer.css'
 import Fecha from '../ItemsContent/fecha'
 import TextContent from './../ItemsContent/TextContent'
 import Enlace from '../buttons/link'
