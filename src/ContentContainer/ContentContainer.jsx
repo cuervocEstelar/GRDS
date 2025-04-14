@@ -4,7 +4,7 @@ import HeroComponent from '../HeroComponent/HeroComponent'
 import './contentContainer.css'
 import Fecha from '../ItemsContent/fecha'
 import TextContent from './../ItemsContent/TextContent'
-import Enlace from '../buttons/link'
+import Enlace from '../buttons/Link'
 
 const ContentContainer = () => {
   return (
