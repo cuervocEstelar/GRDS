@@ -46,7 +46,7 @@ const CarrouselFaqComponent = () => {
     <>
       <div className={styles.carrouselContainer}>
         {isMobile && (
-          <button className={styles.buttonLeft} onClick={goLeft}>
+          <button type="button" className={styles.buttonLeft} onClick={goLeft}>
             <img src="./../../public/chevron-left.svg" alt="Anterior" />
           </button>
         )}
@@ -79,7 +79,7 @@ const CarrouselFaqComponent = () => {
         </div>
 
         {isMobile && (
-          <button className={styles.buttonRight} onClick={goRight}>
+          <button type="button" className={styles.buttonRight} onClick={goRight}>
             <img src="./../../public/chevron-right.svg" alt="Siguiente" />
           </button>
         )}

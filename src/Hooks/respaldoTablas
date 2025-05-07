@@ -1,0 +1,71 @@
+const premios = [
+
+  
+  {
+  
+    id: 1,
+    id_user: '01',
+    title: 'PAPAS FRITAS',
+    description: 'Regístrate y obtén el primer premio',
+    icon: '/../../public/papasFritas.png',
+
+  },
+  {
+
+    id: 2,
+    id_user: '02',
+    title: 'BEBIDA A ELECCIÓN',
+    description: 'Verifica tu cuenta',
+    icon: './../../public/vaso.png',
+  
+  },
+  {
+
+    id: 3,
+    id_user: '03',
+    title: 'SMASH BURGER',
+    description: 'Haz un recargo mínimo',
+    icon: './../../public/hamburgericon.png',
+  
+  }
+  
+];
+
+
+const StockPremios = [
+
+  {
+    id: 1,
+    title: 'SMASH BURGER',
+    status: true,
+    codeCupon: 'ESTELAR9203',
+    qr: './../../public/qr_img.png',
+    id_user: 1635573921,
+  },
+  {
+  id: 2,
+  title: 'BEBIDA A ELECCIÓN',
+  status: true,
+  codeCupon: 'BEBA2023',
+  qr: './../../public/qr_img.png',
+  id_user: 1635573921,
+
+ }
+,
+{
+  id: 3,
+  title: 'BEBIDA A ELECCIÓN',
+  status: true,
+  codeCupon: 'BEBA2023',
+  qr: './../../public/qr_img.png',
+  id_user: 1635573922,
+},
+{
+  id: 4,
+  title: 'BEBIDA A ELECCIÓN',
+  status: true,
+  codeCupon: 'BEBA2023',
+  qr: './../../public/qr_img.png',
+  id_user: 1635573922,
+}
+];

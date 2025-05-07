@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Día del Trabajador - Galaxias de Trabajadores</title>
+  <!-- Fuente caricaturesca opcional -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+    /* Estilos generales */
+body {
+  margin: 0;
+  background: radial-gradient(#000428, #004e92); /* Fondo espacial con degradado oscuro */
+  color: #fff;
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif; /* Fuente caricaturesca y alternativa */
+  overflow-x: hidden; /* Evitar scroll horizontal si las órbitas exceden el ancho */
+}
+#galaxies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+/* Cada galaxia se presenta como un bloque centrado con margen */
+.galaxy {
+  position: relative; /* Contenedor relativo para posicionar órbitas absolutamente dentro */
+  width: 300px;
+  height: 300px;
+  margin: 40px;
+  /* Para pantallas pequeñas, que ocupe todo el ancho disponible */
+  max-width: 90vw;
+  max-height: 90vw;
+}
+/* Estrella central de la galaxia (representa el área de trabajo) */
+.center-star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrar en el contenedor galaxia */
+  width: 80px;
+  height: 80px;
+  background: #ff8c00; /* color por defecto (se sobreescribe si el área tiene color asignado) */
+  border: 4px solid #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80px; /* centrar texto verticalmente dentro del círculo */
+  font-weight: bold;
+  color: #000;
+  font-size: 1.2em;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* brillo alrededor de la estrella */
+}
+/* Contenedor de órbita para cada planeta */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Trasladar el origen del contenedor de órbita al centro de la galaxia */
+  transform: translate(-50%, -50%);
+  /* El tamaño del contenedor de órbita es el doble del radio (diámetro de la órbita) */
+  width: calc(var(--orbit-radius) * 2);
+  height: calc(var(--orbit-radius) * 2);
+  border: 2px dashed rgba(255, 255, 255, 0.3); /* círculo orbital punteado semi-transparente */
+  border-radius: 50%;
+  /* Animación de rotación completa (360deg) usando la duración especificada */
+  animation: spin linear infinite;
+  animation-duration: var(--orbit-duration);
+  /* Aplicar un retraso inicial si está definido (para desalinear comienzos de órbitas) */
+  animation-delay: var(--orbit-delay, 0s);
+}
+/* Planeta (imagen del trabajador) */
+.planet {
+  position: absolute;
+  /* Colocar el planeta en el borde derecho del contenedor de órbita */
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);  /* centrar la imagen justo en el perímetro */
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fff;    /* borde blanco simulando contorno de caricatura */
+  border-radius: 50%;        /* hacer la imagen circular */
+  object-fit: cover;         /* ajustar imagen para cubrir el círculo */
+  box-shadow: 0 0 5px rgba(0,0,0,0.5); /* pequeña sombra para dar profundidad */
+  cursor: pointer;           /* cursor de mano para indicar que es interactivo */
+}
+/* Animación de rotación (órbita completa) */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ----- Estilos para el modal de información del trabajador ----- */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* fondo semi-transparente oscuro */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+/* Mostrar el modal cuando tenga la clase 'open' */
+.modal.open {
+  display: flex;
+}
+.modal-content {
+  background: #fefefe;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  text-align: center;
+  position: relative;
+}
+/* Imagen en el modal - estilo circular más grande */
+#modal-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #000;
+  margin-bottom: 10px;
+}
+/* Nombre del trabajador en el modal */
+#modal-name {
+  margin: 10px 0 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+/* Área y frase */
+#modal-area {
+  font-style: italic;
+}
+#modal-phrase {
+  margin-top: 5px;
+  font-size: 1em;
+  background: #ffd; /* resaltar la frase con fondo claro */
+  padding: 5px;
+  border-radius: 5px;
+}
+/* Botón de cerrar (X) */
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #900;
+  cursor: pointer;
+}
+/* Cambiar color al pasar el mouse por encima del botón de cerrar */
+.close-btn:hover {
+  color: #f00;
+}
+
+/* ----- Responsividad ----- */
+/* En dispositivos móviles (ancho máximo 600px), ajustar tamaños */
+@media (max-width: 600px) {
+  .galaxy {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+  }
+  .center-star {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1em;
+  }
+  .planet {
+    width: 40px;
+    height: 40px;
+  }
+  #modal-photo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+  </style>
+  <!-- Enlace al CSS externo (si se usa archivo separado) podría ir aquí -->
+</head>
+<body>
+  <!-- Contenedor principal de todas las galaxias -->
+  <div id="galaxies-container">
+    <!-- Cada galaxia (área de trabajo) se generará dinámicamente desde JavaScript -->
+  </div>
+
+  <!-- Modal oculto para mostrar detalles del trabajador al hacer clic en un planeta -->
+  <div id="worker-modal" class="modal">
+    <div class="modal-content">
+      <!-- Botón de cierre del modal -->
+      <span id="close-modal" class="close-btn">&times;</span>
+      <!-- Contenido del modal: foto, nombre, área y frase del trabajador -->
+      <img id="modal-photo" src="" alt="Foto del trabajador" />
+      <h2 id="modal-name"></h2>
+      <p id="modal-area"></p>
+      <p id="modal-phrase"></p>
+    </div>
+  </div>
+
+  <!-- Datos JSON de ejemplo con los trabajadores 
+       (En un caso real esto estaría en un archivo JSON separado y se leería con fetch) -->
+  <script id="workers-data" type="application/json">
+  {
+    "workers": [
+      {
+        "nombre": "Alice",
+        "area": "TI",
+        "frase": "La tecnología es mi pasión.",
+        "foto": "alice.jpg"
+      },
+      {
+        "nombre": "Bob",
+        "area": "TI",
+        "frase": "Siempre listo para resolver problemas.",
+        "foto": "bob.jpg"
+      },
+      {
+        "nombre": "Carlos",
+        "area": "SAC",
+        "frase": "La satisfacción del cliente es lo primero.",
+        "foto": "carlos.jpg"
+      },
+      {
+        "nombre": "Diana",
+        "area": "CRM",
+        "frase": "Conectando con los clientes cada día.",
+        "foto": "diana.jpg"
+      },
+    
+    ]
+  }
+  </script>
+
+  <!-- Script JavaScript para generar las galaxias y manejar animaciones/interacciones -->
+  <script>
+    // Obtener los datos del script JSON incrustado
+    const dataElement = document.getElementById('workers-data');
+    const data = JSON.parse(dataElement.textContent);
+    const workers = data.workers;
+
+    // Contenedor principal donde se agregarán las galaxias
+    const galaxiesContainer = document.getElementById('galaxies-container');
+
+    // Determinar las áreas únicas (galaxias) a partir de la lista de trabajadores
+    const areas = [...new Set(workers.map(worker => worker.area))];
+
+    // Definir algunos colores para distinguir cada galaxia (área) de forma caricaturesca
+    const areaColors = {
+      "TI": "#ffcc00",     // amarillo brillante para TI
+      "SAC": "#00ccff",    // azul claro para SAC
+      "CRM": "#cc00ff"     // morado para CRM
+      // Se pueden añadir más colores para nuevas áreas si es necesario
+    };
+
+    // Configuración de órbitas: radios y duraciones de animación base
+    const baseRadius = 120;      // radio base de la órbita en px
+    const radiusIncrement = 60;  // incremento de radio por cada planeta adicional en la galaxia
+    const baseDuration = 8;      // duración base de la órbita en segundos
+    const durationIncrement = 2; // aumento de duración de la animación para órbitas más grandes
+
+    // Crear elementos en el DOM para cada galaxia (área)
+    areas.forEach(area => {
+      // Crear contenedor de galaxia
+      const galaxyDiv = document.createElement('div');
+      galaxyDiv.className = 'galaxy';
+      galaxyDiv.dataset.area = area;  // asignar nombre de área como data-attribute
+
+      // Crear elemento para el centro de la galaxia (estrella central con el nombre del área)
+      const centerStar = document.createElement('div');
+      centerStar.className = 'center-star';
+      centerStar.textContent = area;
+      // Aplicar estilo de color según el área (si existe en el diccionario de colores)
+      if (areaColors[area]) {
+        centerStar.style.backgroundColor = areaColors[area];
+      }
+      galaxyDiv.appendChild(centerStar);
+
+      // Filtrar trabajadores de esta área
+      const workersInArea = workers.filter(w => w.area === area);
+
+      // Iterar sobre cada trabajador del área para crear su planeta
+      workersInArea.forEach((worker, index) => {
+        // Crear contenedor de órbita para este planeta
+        const orbitDiv = document.createElement('div');
+        orbitDiv.className = 'orbit';
+        // Calcular radio y duración personalizados según el índice del planeta
+        const orbitRadius = baseRadius + index * radiusIncrement;
+        const orbitDuration = baseDuration + index * durationIncrement;
+        // Establecer CSS variables para radio y duración (usadas en CSS para tamaño y animación)
+        orbitDiv.style.setProperty('--orbit-radius', orbitRadius + 'px');
+        orbitDiv.style.setProperty('--orbit-duration', orbitDuration + 's');
+
+        // (Opcional) Agregar un ligero retraso inicial aleatorio a la órbita para que no todas empiecen alineadas
+        const delay = Math.random() * 5; // retraso aleatorio entre 0 y 5 segundos
+        orbitDiv.style.setProperty('--orbit-delay', delay + 's');
+
+        // Crear el elemento planeta (imagen del trabajador)
+        const planetImg = document.createElement('img');
+        planetImg.className = 'planet';
+        planetImg.src = worker.foto;
+        planetImg.alt = `Foto de ${worker.nombre}`;
+        // Guardar los datos del trabajador en atributos data para usarlos al hacer clic
+        planetImg.dataset.nombre = worker.nombre;
+        planetImg.dataset.area = worker.area;
+        planetImg.dataset.frase = worker.frase;
+        planetImg.dataset.foto = worker.foto;
+
+        // Insertar el planeta en su órbita, y la órbita en la galaxia
+        orbitDiv.appendChild(planetImg);
+        galaxyDiv.appendChild(orbitDiv);
+      });
+
+      // Agregar la galaxia completa al contenedor principal
+      galaxiesContainer.appendChild(galaxyDiv);
+    });
+
+    // Manejar evento de clic en cada planeta para mostrar la información en el modal
+    galaxiesContainer.addEventListener('click', function(event) {
+      const target = event.target;
+      // Verificar si el elemento clicado es un planeta (imagen con clase 'planet')
+      if (target && target.classList.contains('planet')) {
+        // Obtener información del planeta (trabajador) desde sus data-attributes
+        const nombre = target.dataset.nombre;
+        const area = target.dataset.area;
+        const frase = target.dataset.frase;
+        const foto = target.dataset.foto;
+        // Colocar la información en los elementos del modal
+        document.getElementById('modal-name').textContent = nombre;
+        document.getElementById('modal-area').textContent = "Área: " + area;
+        document.getElementById('modal-phrase').textContent = `"${frase}"`;
+        document.getElementById('modal-photo').src = foto;
+        document.getElementById('modal-photo').alt = `Foto de ${nombre}`;
+        // Mostrar el modal (añadir clase para hacerlo visible)
+        document.getElementById('worker-modal').classList.add('open');
+      }
+    });
+
+    // Manejar el cierre del modal al hacer clic en el botón de cerrar (X)
+    document.getElementById('close-modal').addEventListener('click', function() {
+      document.getElementById('worker-modal').classList.remove('open');
+    });
+
+    // Opcional: también cerrar el modal al hacer clic fuera del contenido del modal
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('worker-modal');
+      if (event.target === modal) {
+        modal.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

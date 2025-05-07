@@ -1,18 +1,4 @@
-
-@media (max-width: 768px) { /* Ajusta para tablets y móviles */
-.BrandContainer{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.600rem;
-    color: black;
-    position: sticky;
-
-}
-
-}
-.BrandContainer{
+.BrandContainer {
 
     display: flex;
     justify-content: center;
@@ -23,12 +9,44 @@
 }
 
 
-.brand-logo-Provider{
-    height: 30px;
-    width: 80px;
+.brand-logo-Provider {
+    width: 90px;
+    height: 50px;
+    aspect-ratio: 9/5;
 }
 
-.brand-logo-Estelarbet{
-    height: 32px;
-    width:  32px;
+.brand-logo-Estelarbet {
+    width: 42px;
+    height: 42px;
+    aspect-ratio: 1/1;
+}
+
+
+@media (max-width: 768px) {
+
+    /* Ajusta para tablets y móviles */
+    .BrandContainer {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.600rem;
+        color: black;
+        position: sticky;
+
+    }
+
+
+    .brand-logo-Provider {
+        width: 90px;
+        height: 50px;
+        aspect-ratio: 9/5;
+    }
+
+    .brand-logo-Estelarbet {
+        width: 42px;
+        height: 42px;
+        aspect-ratio: 1/1;
+    }
+
 }

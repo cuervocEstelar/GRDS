@@ -1,43 +1,64 @@
-.StepContainer{
-background-color: white;
-color: black;
+.StepContainer {
+    background-color: white;
+    color: black;
 }
 
-#pasos{
+#pasos {
+    
     color: var(--sds-color-text-default-default);
-text-align: center;
-/* Title Hero */
+    text-align: center;
+    /* Title Hero */
+    font-family: "Sora", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
 
-font-family: "Sora", sans-serif;
-font-size: 32px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
-text-transform: uppercase;
 }
 
 
-
-.StepContainer .stepText{
-padding: 0 1rem 1rem 1rem;
-text-align: center;
-font-family: "Roboto", sans-serif;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-margin: 0 7rem;
-color: #757575;
+.StepContainer .stepText {
+    padding: 32px 96px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0 7rem;
+    color: #757575;
 }
-
 
 @media (max-width: 767px) {
 
-
-    .StepContainer .stepText{ 
-
+    .StepContainer .stepText {
+        padding: 0 1rem 1rem 1rem;
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        color: #757575;
         margin: 0 1rem;
         font-size: 12px;
-
     }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .StepContainer .stepText {
+        padding: 0 1rem 1rem 1rem;
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        color: #757575;
+        margin: 0 1rem;
+        font-size: 12px;
+    }
+
 }

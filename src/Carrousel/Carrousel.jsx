@@ -9,12 +9,12 @@ const slides = [
   },
   {
     num: 2,
-    text: "Deposita por primera vez y recibe un bono del 100%",
+    text: "Verifica tu identidad completando el proceso de biometría y gana una BEBIDA A ELECCIÓN",
     img: "./../../public/vaso.png",
   },
   {
     num: 3,
-    text: "Juega tus slots favoritas y gana giros gratis",
+    text: "Realiza un depósito mínimo de 5.000 pesos y gana una SMASH BURGER",
     img: "./../../public/hamburgericon.png",
   }
   

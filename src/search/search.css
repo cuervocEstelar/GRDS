@@ -100,17 +100,19 @@
 
 .search-button {
 
-  border-radius: var(--radius-md, 8px);
-  border: 2px solid var(--Gradient-skeuemorphic-gradient-border, rgba(255, 255, 255, 0.12));
-  background: var(--Button-Secondary, #090909);
-  box-shadow: 0px 0px 0px 1px var(--Colors-Effects-Shadows-shadow-skeumorphic-inner-border, rgba(16, 24, 40, 0.18)) inset, 0px -2px 0px 0px var(--Colors-Effects-Shadows-shadow-skeumorphic-inner, rgba(16, 24, 40, 0.05)) inset, 0px 1px 2px 0px var(--Colors-Effects-Shadows-shadow-xs, rgba(16, 24, 40, 0.05));
-  display: flex;
-  padding: 10px 14px;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-xs, 4px);
-  align-self: stretch;
-  color: white;
+  padding: 12px 30px;
+  background-color: black;
+  color: var(--Text-Primary, #FFF);
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;         /* <-- Asegura que el botón ocupe todo el ancho */
+  max-width: 100%;     /* <-- Elimina el límite de 350px */
+  transition: background-color 0.3s ease;
 
 }
 
@@ -120,4 +122,38 @@
   background-color: #3F4F85;
   font-weight: bold;
 
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+
+  .search-button {
+
+    border-radius: var(--radius-md, 8px);
+    border: 2px solid var(--Gradient-skeuemorphic-gradient-border, rgba(255, 255, 255, 0.12));
+    background: var(--Button-Secondary, #090909);
+    box-shadow: 0px 0px 0px 1px var(--Colors-Effects-Shadows-shadow-skeumorphic-inner-border, rgba(16, 24, 40, 0.18)) inset, 0px -2px 0px 0px var(--Colors-Effects-Shadows-shadow-skeumorphic-inner, rgba(16, 24, 40, 0.05)) inset, 0px 1px 2px 0px var(--Colors-Effects-Shadows-shadow-xs, rgba(16, 24, 40, 0.05));
+    display: flex;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xs, 4px);
+    color: white;
+    width: 372px;
+    margin: 0 auto; /* <-- Esto centra el botón */
+    align-self: center; /* <-- Esto asegura que no se estire */
+  }
+  .SearchContainer {
+
+    background-color: #F593CD;
+    margin: 2rem 1rem 2rem 1rem;
+    border-radius: 10px;
+    padding: 0.600rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  
+  }
+  
 }

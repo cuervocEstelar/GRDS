@@ -28,6 +28,8 @@ const FaqDropdown = () => {
       ))}
     </div>
     </div>
+
+    
   )
 }
 

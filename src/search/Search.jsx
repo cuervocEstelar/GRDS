@@ -4,6 +4,8 @@ import './search.css';
 import { FaSearch } from "react-icons/fa";
 import { io } from "socket.io-client";
 import useSocket from '../Hooks/useSocket';
+import useClientes from '../Hooks/useClientes';
+
 
 
 const socket = io("http://bc-api.estelarbet.net");
@@ -19,7 +21,9 @@ const validarRUT = (rut) => {
 };
 
 const Search = () => {
-  const { members } = useSocket(socket, 'campaign-1');
+  // const { clientes } = useClientes(); // <-- Mueve esto aquí
+  const { members, campaign } = useSocket(socket, 'campaign-1');
+
   const [busqueda, setBusqueda] = useState("");
   const [resultados, setResultados] = useState([]);
   const [error, setError] = useState("");
@@ -44,8 +48,11 @@ const Search = () => {
     }
 
     const resultadosFiltrados = members.filter(participante =>
-      limpiarRUT(participante.rut) === limpiarRUT(busqueda)
-    );
+       limpiarRUT(participante.rut) === limpiarRUT(busqueda)
+     );
+    // const resultadosFiltrados = clientes.filter(participante =>
+    //   limpiarRUT(participante.rut) === limpiarRUT(busqueda)
+    // );
 console.log("Resultados filtrados:", resultadosFiltrados); // Para depuración
 
     setResultados(resultadosFiltrados);
@@ -60,7 +67,7 @@ console.log("Resultados filtrados:", resultadosFiltrados); // Para depuración
     <div className="SearchContainer">
       <div className='searchHeader'>
         <FaSearch className="searchIcon" />
-        <h2>verifica tu participación</h2>
+        <h2 className='searchHeader-title'>verifica tu participación</h2>
         <p>Busca con tu rut y verifica tu estado para cobrar los premios</p>
       </div>
 
@@ -80,16 +87,19 @@ console.log("Resultados filtrados:", resultadosFiltrados); // Para depuración
       {error && <p className="error-message">{error}</p>}
 
       {resultados.map((participante, index) => (
+
         <Item
           key={index}
+          campaign={campaign}
           clientId={participante.id}
           clientName={participante.fullName}
           clientRUT={participante.rut}
           promotionCode={participante.promotionCode}
-          isRegistered={true}
-          isVerified={participante.isVerified === "true"}
-          didDeposit={false}
+          isRegistered={participante.isVerified}
+          isVerified={participante.isVerified}
+          didDeposit={participante.didDeposit}
         />
+        
       ))}
     </div>
   );

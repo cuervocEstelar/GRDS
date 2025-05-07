@@ -1,17 +1,43 @@
 .TabsContainer{
     display: flex;
     color: black ;
-    justify-content: space-around;
+    justify-content: center;
     gap: 1em;
     padding: 1rem;
     border-bottom: 1px solid #D9D9D9 ;
 }
 
 .tab-item{
+    
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+.placeholder {
+  transition: height 0.3s;
 }
+}
+
+.fixed-tabs{
+    background-color: white;
+    position: fixed;
+    top: 66px; /* Ajusta según la altura de tu header */
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: top 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    box-sizing: border-box;
+}
+
+.TabsContainer {
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
 .tab-item a {
     color: var(--Text-Secondary, #000);
     text-align: center;
@@ -23,3 +49,34 @@
     font-weight: 600;
     line-height: var(--Line-height-text-md, 24px); /* 150% */
 }
+
+@media (max-width: 768px) {
+    .TabsContainer{
+        display: flex;
+        color: black ;
+        justify-content: space-around;
+        gap: 1em;
+        padding: 1rem;
+        border-bottom: 1px solid #D9D9D9 ;
+    }
+    
+    .tab-item{
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .tab-item a {
+        color: var(--Text-Secondary, #000);
+        text-align: center;
+        text-decoration: none;
+        /* Text md/Semibold */
+        font-family: var(--Font-family-font-family-body, Inter);
+        font-size: var(--Font-size-text-md, 16px);
+        font-style: normal;
+        font-weight: 600;
+        line-height: var(--Line-height-text-md, 24px); /* 150% */
+    }
+}
+
+

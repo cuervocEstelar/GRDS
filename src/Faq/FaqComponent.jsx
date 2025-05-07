@@ -5,7 +5,6 @@ import Enlace from '../buttons/link';
 import FaqDropdown from '../FaqDropdowns/FaqDropdown';
 const FaqComponent = () => {
   return (
-
     <div className='FaqContainer'>
     <h2 id="premios">Premios</h2>
     <CarrouselFaqComponent />
@@ -17,11 +16,8 @@ const FaqComponent = () => {
   }} >
     <Enlace estiloscomponent="participa  participa-white" enlaceClick="https://www.estelarbet.vip" textenlace="Participa aquí"/>
     </div>
-    
     <FaqDropdown />
-    
     </div>
-
   )
 }
 

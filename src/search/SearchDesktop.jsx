@@ -5,7 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { io } from "socket.io-client";
 import useSocket from '../Hooks/useSocket';
 import Boleto from './../Item/Boleto'
-
+//import useClientes from '../Hooks/useClientes';
 
 const socket = io("http://bc-api.estelarbet.net");
 
@@ -33,7 +33,8 @@ const formatearRUT = (rut) => {
 };
 
 const SearchDesktop = () => {
-  const { members } = useSocket(socket, 'campaign-1'); // igual que en mobile
+   const { members } = useSocket(socket, 'campaign-1'); // igual que en mobile
+  //const { clientes } = useClientes(); // <-- Mueve esto aquí
   const [rut, setRut] = useState('');
   const [user, setUser] = useState(null);
   const [rewards, setRewards] = useState([]);
@@ -61,6 +62,9 @@ const SearchDesktop = () => {
         return;
       }
 
+      // const encontrado = members.find(
+      //   (u) => limpiarRUT(u.rut) === limpiarRUT(rut)
+      // );
       const encontrado = members.find(
         (u) => limpiarRUT(u.rut) === limpiarRUT(rut)
       );
@@ -110,19 +114,25 @@ const SearchDesktop = () => {
   return (
     <section className={styles['checker-container']}>
       <div className={styles['checker-box']}>
-        <div className={`${styles['checker-content']} ${user ? styles['start'] : styles['center']}`}>
+      <div className={`${styles['checker-content']} ${user ? styles['start'] : styles['center']}`}>
 
-          <div>
-            <FaSearch className={styles['checker-icon']} />
-            <h2>VERIFICA TU PARTICIPACIÓN</h2>
+          <div className={styles['checker-search']}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <path d="M42 42L33.3 33.3M38 22C38 30.8366 30.8366 38 22 38C13.1634 38 6 30.8366 6 22C6 13.1634 13.1634 6 22 6C30.8366 6 38 13.1634 38 22Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+            <h2 className={styles['checker-title']}>VERIFICA TU PARTICIPACIÓN</h2>
             <p className={styles['checker-text']}>Busca con tu rut y verifica tu estado para cobrar los premios</p>
 
             {user && (
-              <div className={styles['checker-user']}>
-                <div><strong>Usuario</strong></div>
-                <div>{user.name}</div>
-                <div><strong>Rut</strong></div>
-                <div>{user.rut}</div>
+             <div className={styles['checker-user']}>
+             <div className={styles['user-info-row']}>
+                  <span>Usuario</span> 
+                  <strong className='user-info-value'>{user.name}</strong>
+                </div>
+               <div className={styles['user-info-row']}>
+                  <span>Rut</span>
+                  <strong className='user-info-value'>{user.rut}</strong>
+               </div>
               </div>
             )}
 
@@ -147,15 +157,13 @@ const SearchDesktop = () => {
             {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
           </div>
 
+
           {user && rewards.length > 0 && (
             <div className={`${styles['rewards-box']} ${rewards.length > 0 ? styles['rewards-box-enter'] : ''}`}>
-
-
               <h3>PREMIOS POR GANAR</h3>
               {rewards.map((reward, index) => (
                 <Boleto key={index} />
               ))}
-
             </div>
           )}
         </div>
@@ -163,20 +171,4 @@ const SearchDesktop = () => {
     </section>
   );
 };
-
 export default SearchDesktop;
-
-
-
-
-{/* <div key={index} className={styles['reward-card']}>
-<div className={styles['reward-status']}>{reward.status}</div>
-<div className={styles['reward-info']}>
-  <img src={reward.icon} alt={reward.title} />
-  <div>
-    <strong>{reward.title}</strong>
-    <p>{reward.description}</p>
-    <span>Válido hasta agotar existencia</span>
-  </div>
-</div>
-</div> */}

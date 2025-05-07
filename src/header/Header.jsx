@@ -4,15 +4,22 @@ import Enlace from '../buttons/link'
 
 
 const Header = () => {
+
+
   return (
-   <header >
 
-   <Brand logoSrcProvider="./../../public/logoProvider.png" logoSrcEstelarbet="./../../public/logoEstelarbet.png"/>
+<header id="mainHeader">
    
-   <Enlace estiloscomponent="participa participa-black" enlaceClick="https://www.estelarbet.vip" textenlace="Participa ahora" />
 
-   </header>
-  )
+<Brand logoSrcProvider="./../../public/logoProvider.png" logoSrcEstelarbet="./../../public/logoEstelarbet.png"/>
+   
+
+<Enlace estiloscomponent="participaa participa-black" enlaceClick="https://www.estelarbet.vip" textenlace="Participa ahora" />
+
+
+</header>
+
+)
 }
 
-export default Header 
+export default Header

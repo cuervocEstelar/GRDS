@@ -1,143 +1,188 @@
- 
-@media (max-width: 768px) { /* Ajusta para tablets y móviles */
-.btn-cupon{
-  
-    padding: 0.5em 1em;
-    background-color: #303E67 ;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin: 1rem 0 0 0;
-    font-size: 12px;
+ @media (max-width: 768px) {
+
+   /* Ajusta para tablets y móviles */
+   .participa-black {
     
-  }
+     display: flex;
+     padding: 10px 14px;
+     justify-content: center;
+     align-items: center;
+     gap: var(--spacing-xs, 4px);
+     border-radius: var(--radius-md, 8px);
+     border: 2px solid var(--Gradient-skeuemorphic-gradient-border, rgba(255, 255, 255, 0.12));
+     background: var(--Button-Secondary, #090909);
+     /* Drop Shadow/200 */
+     box-shadow: var(--sds-size-depth-0) var(--sds-size-depth-025) var(--sds-size-depth-100) var(--sds-size-depth-0) var(--sds-color-black-200), var(--sds-size-depth-0) var(--sds-size-depth-025) var(--sds-size-depth-100) var(--sds-size-depth-0) var(--sds-color-black-100);
+ 
+    }
 
 
-  .btn-cupon:hover{
-  
-    background-color: #3F4F85;
-    font-weight: bold;
+   .btn-cupon {
 
-  }
+     padding: 0.5em 1em;
+     background-color: #303E67;
+     border: none;
+     color: white;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background 0.3s;
+     margin: 1rem 0 0 0;
+     font-size: 12px;
 
-
-  .btn-cupon.false {
-  
-    background-color: #263152 ;
-    color: white;
-    font-weight: bold;
-    cursor: auto;
-  }
+   }
 
 
+   .btn-cupon:hover {
 
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal {
-    background: #121727;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .modal button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    border: none;
-    background: #ff4d4d;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .modal button:hover {
-    background: #e60000;
-  }
-  
+     background-color: #3F4F85;
+     font-weight: bold;
+
+   }
+
+
+   .btn-cupon.false {
+     background-color: #263152;
+     color: white;
+     font-weight: bold;
+     cursor: auto;
+   }
 
 
 
+   .modal-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
 
-  .participa{
+   .modal {
+     background: #121727;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+     text-align: center;
+   }
 
-   box-shadow:  0px 4px 6px  rgba(0, 0, 0, 0);
-   padding: 1rem 2rem;
+   .modal button {
+     margin-top: 10px;
+     padding: 8px 16px;
+     border: none;
+     background: #ff4d4d;
+     color: white;
+     cursor: pointer;
+     border-radius: 5px;
+   }
+
+   .modal button:hover {
+     background: #e60000;
+   }
+
+
+
+
+
+   .participa {
+
+     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0);
+     padding: 1rem 2rem;
+     border-radius: 10px;
+     font-size: 14px;
+     font-weight: bold;
+     color: white;
+     font-family: "Inter", sans-serif;
+     text-decoration: none;
+   }
+
+
+   .participa-pink {
+     background-color: #FA9DD4;
+   }
+
+   .participa-white {
+     background-color: white;
+     color: black;
+   }
+
+
+
+
+
+ }
+
+
+ .participa {
+
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0);
+   padding: 1.5rem 1rem;
    border-radius: 10px;
    font-size: 14px;
    font-weight: bold;
    color: white;
    font-family: "Inter", sans-serif;
+   width: 7.625rem;
+   height: 0.1rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    text-decoration: none;
-  }
+ }
 
-  .participa-black{
-    background-color: black;
- 
-   }
-  .participa-pink{
-    background-color: #FA9DD4;
-   }
-   
-   .participa-white{
-    background-color: white;
-    color: black;
-   }
-
-
-
-   
-  
-  }
+ .participa-black {
+   background-color: black;
+   display: flex;
+   padding: 10px var(--spacing-xl, 16px);
+   justify-content: center;
+   align-items: center;
+   gap: var(--spacing-sm, 6px);
+   color: white;
+   border-radius: var(--radius-md, 8px);
+   border: 2px solid var(--Gradient-skeuemorphic-gradient-border, rgba(255, 255, 255, 0.12));
+   text-decoration: none;
+   background: var(--Button-Secondary, #090909);
+ }
 
 
-  .participa{
+ .participa-black:visited {
+   color: white;
 
-    box-shadow:  0px 4px 6px  rgba(0, 0, 0, 0);
-    padding: 1.5rem 1rem;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    font-family: "Inter", sans-serif;
-    width: 7.625rem;
-    height: 0.1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-  }
- 
-   .participa-black{
-     background-color: black;
-  
-    }
-    
-    .participa:hover{
-   color : rgb(219, 215, 215);
-    }
+ }
 
-   .participa-pink{
-     background-color: #FA9DD4;
-     color :black;
-    }
-    
-    .participa-white{
-     background-color: white;
-     color: black;
-     width: 20.625rem;
-    }
+ .participa:hover {
+   color: rgb(219, 215, 215);
+ }
 
+ .participa-pink {
+   border-radius: var(--radius-lg, 10px);
+   border: 2px solid var(--Gradient-skeuemorphic-gradient-border, rgba(255, 255, 255, 0.12));
+   background: var(--Button-Primary, #FA9DD4);
+   display: flex;
+   width: 300px;
+   padding: var(--spacing-xl, 16px) 22px;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   text-decoration: none;
+   color: black;
+   margin-top: 24px;
+   color: var(--Text-Secondary, #000);
 
+   /* Text lg/Semibold */
+   font-family: var(--Font-family-font-family-body, Inter);
+   font-size: var(--Font-size-text-lg, 18px);
+   font-style: normal;
+   font-weight: 600;
+   line-height: var(--Line-height-text-lg, 28px);
+   /* 155.556% */
+ }
+
+ .participa-white {
+   background-color: white;
+   color: black;
+   width: 20.625rem;
+ }
