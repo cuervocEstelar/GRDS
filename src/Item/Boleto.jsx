@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import styles from './TicketPromo.module.css';
 import ModalCupon from './ModalPremio';
 
-const TicketPromo = ({ img, status, title, description, note , codeCupon ,qr ,clientName}) => {
+const TicketPromo = ({ img, status, title, description, note , codeCupon ,qr ,clientName, check, idPremio, checksCampaign}) => {
+  console.log("----------------")
+  console.log(check['0-isVerified'], " = check del usuario ")
+  console.log(idPremio, " = id del premio ")
+  console.log(checksCampaign, " = checksCampaign")
+
+
+  // Estado para controlar la visualización del modal de cupó
   const [showModal, setShowModal] = useState(false);
 
 

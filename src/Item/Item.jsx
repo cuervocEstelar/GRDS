@@ -3,12 +3,17 @@ import styles from './Item.module.css';
 import Boleto from './Boleto';
 import useStockPremios from './../Hooks/useStockPremios';
 import usePremios from './../Hooks/usePremios';
-
 import { io } from "socket.io-client";
+const Item = ({ clientName, clientRUT, campaign ,check}) => {
 
-const Item = ({ clientName, clientRUT, campaign}) => {
-  
+
+ // Obtener el stock de premios y premios desde el hook useStockPremios y usePremios respectiva
  const awards = campaign.awards;
+ const checks = campaign.checks;
+//  console.log(checks, " checks campaña")
+//  console.log(check,  "check Participante seleccionado")
+//  console.log(awards, "Premios  campaña")
+
   const { stockPremios, loading: loadingStock, error: errorStock } = useStockPremios();
   const { premios, loading: loadingPremios, error: errorPremios } = usePremios();
 
@@ -65,12 +70,14 @@ const Item = ({ clientName, clientRUT, campaign}) => {
 
 
             {awards.map((premio, index) => {
-         
-
+          
+              
             return (
-
               <Boleto
                 key={index}
+                check={check}
+                checksCampaign={checks}
+                idPremio={premio.awardId}
                 img={premio.awardImage}
                 title={premio.awardName}
                 description={premio.awardDescription}
@@ -81,7 +88,6 @@ const Item = ({ clientName, clientRUT, campaign}) => {
                 clientName={clientName}
                 clientRUT={clientRUT}
               />
-
             );
           })}
 

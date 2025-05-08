@@ -13,11 +13,9 @@ const socket = io("http://bc-api.estelarbet.net");
 const limpiarRUT = (rut) => rut.replace(/\./g, '').replace(/-/g, '').toLowerCase();
 // ✅ Permite RUT con o sin guion
 const validarRUT = (rut) => {
-
   const rutLimpio = limpiarRUT(rut);
   const regexRUT = /^[0-9]{7,8}[0-9Kk]$/; // sin puntos, sin guion
   return regexRUT.test(rutLimpio);
-
 };
 
 const Search = () => {
@@ -53,7 +51,7 @@ const Search = () => {
     // const resultadosFiltrados = clientes.filter(participante =>
     //   limpiarRUT(participante.rut) === limpiarRUT(busqueda)
     // );
-console.log("Resultados filtrados:", resultadosFiltrados); // Para depuración
+console.log("Resultados filtrados:", resultadosFiltrados ); // Para depuración
 
     setResultados(resultadosFiltrados);
 
@@ -90,6 +88,7 @@ console.log("Resultados filtrados:", resultadosFiltrados); // Para depuración
 
         <Item
           key={index}
+          check={participante.check}
           campaign={campaign}
           clientId={participante.id}
           clientName={participante.fullName}
@@ -98,6 +97,7 @@ console.log("Resultados filtrados:", resultadosFiltrados); // Para depuración
           isRegistered={participante.isVerified}
           isVerified={participante.isVerified}
           didDeposit={participante.didDeposit}
+          
         />
         
       ))}
