@@ -10,10 +10,14 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
  // Obtener el stock de premios y premios desde el hook useStockPremios y usePremios respectiva
  const awards = campaign.awards;
  const checks = campaign.checks;
-//  console.log(checks, " checks campaña")
-//  console.log(check,  "check Participante seleccionado")
-//  console.log(awards, "Premios  campaña")
 
+ console.log("-----------------------")
+ console.log(checks, " checks campaña")
+ console.log(check,  "check Participante seleccionado")
+ console.log(awards, "Premios  campaña")
+
+
+ 
   const { stockPremios, loading: loadingStock, error: errorStock } = useStockPremios();
   const { premios, loading: loadingPremios, error: errorPremios } = usePremios();
 
