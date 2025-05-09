@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './Item.module.css';
 import Boleto from './Boleto';
-import useStockPremios from './../Hooks/useStockPremios';
-import usePremios from './../Hooks/usePremios';
 import { io } from "socket.io-client";
 const Item = ({ clientName, clientRUT, campaign ,check}) => {
 
@@ -10,16 +8,15 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
  // Obtener el stock de premios y premios desde el hook useStockPremios y usePremios respectiva
  const awards = campaign.awards;
  const checks = campaign.checks;
+ const scope  = campaign.scope;
 
- console.log("-----------------------")
- console.log(checks, " checks campaña")
- console.log(check,  "check Participante seleccionado")
- console.log(awards, "Premios  campaña")
+//  console.log("-----------------------")
+//  console.log(checks, " checks campaña")
+  console.log(awards, "Premios  campaña")
+//  console.log(check,  "check Participante seleccionado")
 
 
  
-  const { stockPremios, loading: loadingStock, error: errorStock } = useStockPremios();
-  const { premios, loading: loadingPremios, error: errorPremios } = usePremios();
 
     const formatearRUT = (rut) => {
     const cleanRut = rut.replace(/\D/g, '');
@@ -38,14 +35,7 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
     return `${cuerpoFormateado}-${dv}`;
   };
 
-  // Manejo de carga y error
-  if (loadingStock || loadingPremios) {
-    return <p className={styles['loading']}>Cargando premios...</p>;
-  }
 
-  if (errorStock || errorPremios) {
-    return <p className={styles['error']}>Error al cargar los datos.</p>;
-  }
 
   return (
     <div className={styles['item-box']}>
@@ -67,18 +57,17 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
         <h2 className={styles['item-status-title']}>Premios por ganar</h2>
         <div className={styles.status}>
           
-          {/* {premios.map((premio, index) => {
-            const stock = stockPremios.find(
-              (s) => s.title === premio.title || s.id === premio.id
-            ); */}
+  
 
 
             {awards.map((premio, index) => {
           
-              
+    
+
             return (
               <Boleto
                 key={index}
+                scope={scope}
                 check={check}
                 checksCampaign={checks}
                 idPremio={premio.awardId}
@@ -87,7 +76,7 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
                 description={premio.awardDescription}
                 note="Válido hasta agotar stock"
                 status={premio.status}
-                codeCupon={premio?.codeCupon}
+               // codeCupon={premio?.codeCupon}
                 qr={premio?.qr}
                 clientName={clientName}
                 clientRUT={clientRUT}
@@ -96,18 +85,7 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
           })}
 
           
-               {/* <Boleto
-               key={index}
-               img={premio.icon}
-               title={premio.title}
-               description={premio.description}
-               note="Válido hasta agotar stock"
-               status={stock.status}
-               codeCupon={stock?.codeCupon}
-               qr={stock?.qr}
-               clientName={clientName}
-               clientRUT={clientRUT}
-             /> */}
+     
       
          
         </div>

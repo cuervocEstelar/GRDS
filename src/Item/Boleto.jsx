@@ -2,12 +2,54 @@ import React, { useState } from 'react';
 import styles from './TicketPromo.module.css';
 import ModalCupon from './ModalPremio';
 
-const TicketPromo = ({ img, status, title, description, note , codeCupon ,qr ,clientName, check, idPremio, checksCampaign}) => {
-  // console.log("----------------")
-  // console.log(check['0-isVerified'], " = check del usuario ")
-  // console.log(idPremio, " = id del premio ")
-  // console.log(checksCampaign, " = checksCampaign")
+const TicketPromo = ({ img, clientRUT, title, description, note , codeCupon ,qr ,clientName, check , idPremio, checksCampaign, scope }) => {
 
+  // console.log("----------------")
+  //  console.log(check, " = check del usuario ")
+  // console.log(idPremio, " = id del premio ")
+  // console.log(checksCampaign, "= checksCampaign")
+  // console.log(scope.includeDocNumbers , "scope")
+  
+
+  const CodeHamburgesa   = check['0-isVerified'].promotionCode ;  
+  const  CodePapasBebida = check['1-didDeposit'].promotionCode ; 
+
+
+
+  
+  
+let finalCode = "";
+
+if (title === "Hamburguesa") {
+  finalCode = CodeHamburgesa;
+}else if (title === "Combo Bebida y Papas") {
+  finalCode = CodePapasBebida;
+}
+
+ 
+
+  // const users = scope.includeDocNumbers 
+
+
+  // const user = users.filter((user) => user === clientRUT);
+
+
+
+  // console.log(scope.includeDocNumbers, "scope")
+  // console.log(scope.includeDocNumbers.includes(clientRUT), "scope")
+  // console.log(scope.includeDocNumbers, "scope")
+  // users.forEach((user) => {
+  //   if (user === clientRUT) {
+
+  //     console.log(user, "Si está el usuario en la lista")
+
+
+
+  //   }else{
+
+  //    // console.log("No está el usuario en la lista")
+  //   }
+  // })
 
   // Estado para controlar la visualización del modal de cupó
   const [showModal, setShowModal] = useState(false);
@@ -55,7 +97,7 @@ const TicketPromo = ({ img, status, title, description, note , codeCupon ,qr ,cl
       {showModal && (
         <ModalCupon
           userName={clientName}
-          code={codeCupon}
+          code={finalCode}
           ticketQR={qr}
           onClose={() => setShowModal(false)}
         />
