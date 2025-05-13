@@ -33,15 +33,16 @@ const formatearRUT = (rut) => {
 };
 
 const SearchDesktop = () => {
-   const { members } = useSocket(socket, 'campaign-1'); // igual que en mobile
+   const { members, campaign } = useSocket(socket, 'campaign-1'); // igual que en mobile
   //const { clientes } = useClientes(); // <-- Mueve esto aquí
-  const [rut, setRut] = useState('');
+  const [rut, setRut] = useState('188827497');
   const [user, setUser] = useState(null);
   const [rewards, setRewards] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-
+console.log(campaign, "campaign")
+  // Función para manejar la búsqueda de usuari
   const handleSearch = () => {
     setLoading(true); // Inicia loader
 
@@ -156,7 +157,6 @@ const SearchDesktop = () => {
 
             {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
           </div>
-
 
           {user && rewards.length > 0 && (
             <div className={`${styles['rewards-box']} ${rewards.length > 0 ? styles['rewards-box-enter'] : ''}`}>

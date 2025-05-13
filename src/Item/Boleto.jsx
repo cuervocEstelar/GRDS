@@ -2,38 +2,32 @@ import React, { useState } from 'react';
 import styles from './TicketPromo.module.css';
 import ModalCupon from './ModalPremio';
 
+
 const TicketPromo = ({ img, clientRUT, title, description, note , codeCupon ,qr ,clientName, check , idPremio, checksCampaign, scope }) => {
 
   // console.log("----------------")
-  //  console.log(check, " = check del usuario ")
+  // console.log(check, " = check del usuario ")
   // console.log(idPremio, " = id del premio ")
   // console.log(checksCampaign, "= checksCampaign")
   // console.log(scope.includeDocNumbers , "scope")
-  
-
+  let finalCode = "";
+if (check){
   const CodeHamburgesa   = check['0-isVerified'].promotionCode ;  
   const  CodePapasBebida = check['1-didDeposit'].promotionCode ; 
 
 
+  
+  
 
-  
-  
-let finalCode = "";
 
 if (title === "Hamburguesa") {
   finalCode = CodeHamburgesa;
 }else if (title === "Combo Bebida y Papas") {
   finalCode = CodePapasBebida;
 }
-
- 
-
+}
   // const users = scope.includeDocNumbers 
-
-
   // const user = users.filter((user) => user === clientRUT);
-
-
 
   // console.log(scope.includeDocNumbers, "scope")
   // console.log(scope.includeDocNumbers.includes(clientRUT), "scope")
@@ -96,9 +90,11 @@ if (title === "Hamburguesa") {
 
       {showModal && (
         <ModalCupon
+          clientRUT={clientRUT}
           userName={clientName}
-          code={finalCode}
+          code={ finalCode || "defecto"}
           ticketQR={qr}
+          title={title}
           onClose={() => setShowModal(false)}
         />
       )}

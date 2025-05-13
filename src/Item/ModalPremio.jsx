@@ -2,12 +2,24 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './ModalCupon.module.css';
 import { FaTimes, FaCopy } from 'react-icons/fa';
-
-const ModalPremio = ({ userName, code, onClose, ticketQR }) => {
+import {QRCodeSVG} from 'qrcode.react';
+const ModalPremio = ({ userName, code, onClose, ticketQR , title , clientRUT}) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = 'auto'; };
   }, []);
+
+
+  const datos = {
+    nombre: userName,
+    rut: clientRUT,
+    premio: title,
+    code: code,
+  };
+  
+console.log(datos);
+  const url = new URL("https://www.estelarbet.vip/validar-premio");
+Object.entries(datos).forEach(([k, v]) => url.searchParams.append(k, v));
 
   const modalContent = (
     <div className={styles.ticketOverlay}>
@@ -32,7 +44,8 @@ const ModalPremio = ({ userName, code, onClose, ticketQR }) => {
           <div className={styles.ticketDivider}></div>
 
           <div className={styles.ticketCode}>
-            <img src={ticketQR} alt="QR Code" className={styles.ticketQR} />
+            {/* <img src={ticketQR} alt="QR Code" className={styles.ticketQR} /> */}
+            <QRCodeSVG value={url.toString()} />
             <div className={styles.ticketCodeBox}>
               <span>Código:</span>
               <div className={styles.ticketCodeLine}>

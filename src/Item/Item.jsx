@@ -12,7 +12,7 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
 
 //  console.log("-----------------------")
 //  console.log(checks, " checks campaña")
-  console.log(awards, "Premios  campaña")
+//  console.log(awards, "Premios  campaña")
 //  console.log(check,  "check Participante seleccionado")
 
 
@@ -38,10 +38,10 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
 
 
   return (
+
     <div className={styles['item-box']}>
       <div className={styles['item-info']}>
         <h2 className={styles['item-info-title']}>Estado del participante</h2>
-
         <div className={styles['item-name-container']}>
           <h2 className={styles['label-nombre']}>Nombre</h2>
           <p className={styles['item-name']}>{clientName}</p>
