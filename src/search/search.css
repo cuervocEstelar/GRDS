@@ -111,7 +111,7 @@
   font-size: 14px;
   line-height: 20px;
   width: 100%;         /* <-- Asegura que el botón ocupe todo el ancho */
-  max-width: 100%;     /* <-- Elimina el límite de 350px */
+  max-width: 20rem;     /* <-- Elimina el límite de 350px */
   transition: background-color 0.3s ease;
 
 }

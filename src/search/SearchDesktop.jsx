@@ -8,7 +8,6 @@ import Boleto from './../Item/Boleto'
 //import useClientes from '../Hooks/useClientes';
 
 const socket = io("http://bc-api.estelarbet.net");
-
 // 🔧 Limpia puntos y guiones del RUT
 const limpiarRUT = (rut) => rut.replace(/\./g, '').replace(/-/g, '').toLowerCase();
 
@@ -33,7 +32,8 @@ const formatearRUT = (rut) => {
 };
 
 const SearchDesktop = () => {
-   const { members, campaign } = useSocket(socket, 'campaign-1'); // igual que en mobile
+  const { members, campaign } = useSocket(socket, 'campaign-1'); // igual que en mobile
+
   //const { clientes } = useClientes(); // <-- Mueve esto aquí
   const [rut, setRut] = useState('188827497');
   const [user, setUser] = useState(null);
@@ -41,7 +41,7 @@ const SearchDesktop = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-console.log(campaign, "campaign")
+
   // Función para manejar la búsqueda de usuari
   const handleSearch = () => {
     setLoading(true); // Inicia loader
@@ -70,34 +70,37 @@ console.log(campaign, "campaign")
         (u) => limpiarRUT(u.rut) === limpiarRUT(rut)
       );
 
+      console.log("Encontrado:", encontrado); // Para depuració
+      
       if (encontrado) {
         setUser({
           name: encontrado.fullName,
-          rut: formatearRUT(encontrado.rut)
+          rut: formatearRUT(encontrado.rut),
+          check: encontrado.check,
         });
 
-        const premios = [
-          {
-            title: 'PAPAS FRITAS',
-            description: 'Regístrate y obtén el primer premio',
-            status: encontrado.isRegistered === 'true' ? 'Ganado' : 'Pendiente',
-            icon: '/icons/fries.png'
-          },
-          {
-            title: 'BEBIDA A ELECCIÓN',
-            description: 'Verifica tu cuenta',
-            status: encontrado.isVerified === 'true' ? 'Ganado' : 'Pendiente',
-            icon: '/icons/drink.png'
-          },
-          {
-            title: 'SMASH BURGER',
-            description: 'Haz un recargo mínimo',
-            status: encontrado.didDeposit === 'true' ? 'Ganado' : 'Pendiente',
-            icon: '/icons/burger.png'
-          }
-        ];
+        // const premios = [
+        //   {
+        //     title: 'PAPAS FRITAS',
+        //     description: 'Regístrate y obtén el primer premio',
+        //     status: encontrado.isRegistered === 'true' ? 'Ganado' : 'Pendiente',
+        //     icon: '/icons/fries.png'
+        //   },
+        //   {
+        //     title: 'BEBIDA A ELECCIÓN',
+        //     description: 'Verifica tu cuenta',
+        //     status: encontrado.isVerified === 'true' ? 'Ganado' : 'Pendiente',
+        //     icon: '/icons/drink.png'
+        //   },
+        //   {
+        //     title: 'SMASH BURGER',
+        //     description: 'Haz un recargo mínimo',
+        //     status: encontrado.didDeposit === 'true' ? 'Ganado' : 'Pendiente',
+        //     icon: '/icons/burger.png'
+        //   }
+        // ];
 
-        setRewards(premios);
+        setRewards(campaign.awards);
         setError('');
       } else {
         setUser(null);
@@ -162,7 +165,11 @@ console.log(campaign, "campaign")
             <div className={`${styles['rewards-box']} ${rewards.length > 0 ? styles['rewards-box-enter'] : ''}`}>
               <h3>PREMIOS POR GANAR</h3>
               {rewards.map((reward, index) => (
-                <Boleto key={index} />
+                
+                <Boleto 
+                check = {user.check}
+                rewardDesktop={reward} 
+                 key={index} />
               ))}
             </div>
           )}

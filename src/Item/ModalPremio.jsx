@@ -17,7 +17,7 @@ const ModalPremio = ({ userName, code, onClose, ticketQR , title , clientRUT}) =
     code: code,
   };
   
-console.log(datos);
+
   const url = new URL("https://www.estelarbet.vip/validar-premio");
 Object.entries(datos).forEach(([k, v]) => url.searchParams.append(k, v));
 

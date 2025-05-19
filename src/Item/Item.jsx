@@ -12,7 +12,7 @@ const Item = ({ clientName, clientRUT, campaign ,check}) => {
 
 //  console.log("-----------------------")
 //  console.log(checks, " checks campaña")
-//  console.log(awards, "Premios  campaña")
+console.log(awards, "Premios  campaña")
 //  console.log(check,  "check Participante seleccionado")
 
 

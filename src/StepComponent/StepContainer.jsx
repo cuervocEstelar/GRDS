@@ -1,5 +1,5 @@
 import React, { useContext, createContext, useState } from 'react';
-import Search from '../search/search'
+import Search from '../search/Search'
 import SearchDesktop from '../search/SearchDesktop'
 import useIsMobile from '../Hooks/useIsMobile'
 import './StepContainer.css';
@@ -12,7 +12,7 @@ const StepContainer = () => {
   return (
  <>
       <div className='StepContainer'>
-        <Tabs />
+        <Tabs/>
         <h2 id='pasos'>Pasos a seguir</h2>
         <Carrousel />
         <RutContext.Provider value={{ rut, setRut }}>

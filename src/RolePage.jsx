@@ -14,7 +14,7 @@ const RolePage = () => {
 
          <ul style={{  display: "none"  } }>
           <li><Link to="/role/participante">Ir a Participante</Link></li>
-          <li><Link to="/role/cobrador">Ir a Cobrador</Link></li>
+          <li><Link to="/role/cobrador">Ir a lCobrador</Link></li>
         </ul>
       </nav>
       {/* Renderizado condicional según la URL */}
