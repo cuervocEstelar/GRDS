@@ -12,15 +12,15 @@ const StepContainer = () => {
   return (
  <>
       <div className='StepContainer'>
-        <Tabs/>
-        <h2 id='pasos'>Pasos a seguir</h2>
-        <Carrousel />
-        <RutContext.Provider value={{ rut, setRut }}>
+          <Tabs/>
+          <h2 id='pasos'>Pasos a seguir</h2>
+          <Carrousel />
+          <RutContext.Provider value={{ rut, setRut }}>
           {isMobile ? <Search /> : <SearchDesktop />}
-        </RutContext.Provider>
-           <p className='stepText'>Promoción válida para mayores de 18 años en todo el territorio nacional y exclusivamente a través de www.urldelapromo.com, desde el 1 de marzo hasta el 30 de junio de 2025. Premios a repartir: 200 smash burgers, 200 papas fritas, 1.200 bebidas. Descubre un mundo de aventuras en la selva amazónica, donde podrás explorar paisajes exóticos y conocer especies únicas. Disfruta de actividades emocionantes como el senderismo, la observación de aves y la pesca en ríos cristalinos, todo mientras te relajas en acogedoras cabañas rodeadas de naturaleza.
-           </p>
-         </div>
+          </RutContext.Provider>
+          <p className='stepText'>Promoción válida para mayores de 18 años en todo el territorio nacional y exclusivamente a través de www.urldelapromo.com, desde el 1 de marzo hasta el 30 de junio de 2025. Premios a repartir: 200 smash burgers, 200 papas fritas, 1.200 bebidas. Descubre un mundo de aventuras en la selva amazónica, donde podrás explorar paisajes exóticos y conocer especies únicas. Disfruta de actividades emocionantes como el senderismo, la observación de aves y la pesca en ríos cristalinos, todo mientras te relajas en acogedoras cabañas rodeadas de naturaleza.
+          </p>
+      </div>
     </>
   )
 }

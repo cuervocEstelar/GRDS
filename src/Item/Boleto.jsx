@@ -17,60 +17,53 @@ let statusColor = "";
 let TextColor = "";
 
 
-if (check) {
+if (!check) {
+  console.log("No hay premios disponibles para este usuario");
 
+  
+  return ;
+}
 
-Object.keys(check  ).forEach(key => {
+const idBuscado = String(idPremio || rewardDesktop.awardId);
 
-  const valor = check[key] ;
+for (const key in check) {
+  const valor = check[key];
+  const awardId = String(valor.awardIds?.[0]);
 
-  // Verifica si el valor de la propiedad coincide con el valor que deseas buscar
-  // Si coincide, puedes realizar alguna acción, como mostrar una image
-  if (String(valor.awardIds[0]) === String(idPremio ||rewardDesktop.awardId ))  {
-     
-    finalCode = valor.promotionCode;
-    // Puedes hacer return aquí si solo quieres la primera coincidencia
-    if (  valor.isVerified && valor.isVerified === false  || valor.didDeposit && valor.didDeposit === false ) {
-      statusFinal = 'Pendiente'; // Imagen por defecto
-      statusColor = '#fef1d1'; 
-      TextColor = '#8a6f3b';
-    } else if (valor.isVerified && valor.isVerified === true || valor.didDeposit && valor.didDeposit === true) {
-      statusFinal  = 'Cobrar';
-      statusColor = 'green';
-      TextColor = 'white';
-      console.log("cobrar ", valor.awardIds[0], "id",idPremio)
-      console.log("----------------")
-    } else if (valor.isVerified === 2) {
-      statusFinal = 'Cobrado'; // Imagen por defecto
-      statusColor = 'blue';
-      TextColor = 'white';
-    }  else {
-
-      console.error("no hay premio")
-      console.log("id ", valor.awardIds[0], "id",idPremio)
-      console.log("deposito ", valor.didDeposit)
-      console.log("verificado ", valor.isVerified)
-      console.log("valor" , valor)
-      console.log("----------------")
-      
-      }
-    
-
-  }else {
-
-    console.log("no pude entrar en el loop "
-      ,valor.awardIds[0],idPremio
-
-    )
-    console.log("----------------")
+  if (awardId !== idBuscado) {
+    console.log("No coincide el ID del premio:", awardId, "vs", idBuscado);
+    continue;
   }
 
+  finalCode = valor.promotionCode;
 
+  const verificado = valor.isVerified;
+  const deposito = valor.didDeposit;
 
-});
+  if (verificado === 2) {
+    statusFinal = 'Cobrado';
+    statusColor = 'blue';
+    TextColor = 'white';
+  } else if (verificado === true || deposito === true) {
+    statusFinal = 'Cobrar';
+    statusColor = 'green';
+    TextColor = 'white';
+    console.log("✅ Cobrar:", awardId, "vs", idBuscado);
+  } else if (verificado === false || deposito === false) {
+    statusFinal = 'Pendiente';
+    statusColor = '#fef1d1';
+    TextColor = '#8a6f3b';
+  } else {
+    console.error("No hay estado claro para el premio:");
+    console.log("ID:", awardId);
+    console.log("Verificado:", verificado);
+    console.log("Depósito:", deposito);
+    console.log("Objeto completo:", valor);
+  }
 
-
+  break; // Salimos del bucle tras encontrar coincidencia
 }
+
 
 
 

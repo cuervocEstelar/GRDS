@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './Item.module.css';
 import Boleto from './Boleto';
 import { io } from "socket.io-client";
+import BoletoNot from './BoletoNot';
 const Item = ({ clientName, clientRUT, campaign ,check}) => {
 
 
@@ -37,7 +38,16 @@ console.log(awards, "Premios  campaña")
 
 
 
+if (!check) {
+  
   return (
+
+<BoletoNot/>
+  
+);
+}
+  return(
+
 
     <div className={styles['item-box']}>
       <div className={styles['item-info']}>
@@ -65,6 +75,7 @@ console.log(awards, "Premios  campaña")
     
 
             return (
+              
               <Boleto
                 key={index}
                 scope={scope}
@@ -92,6 +103,10 @@ console.log(awards, "Premios  campaña")
       </div>
     </div>
   );
+
+
+
+
 };
 
 export default Item;
