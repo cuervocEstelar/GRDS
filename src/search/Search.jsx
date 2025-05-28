@@ -22,7 +22,7 @@ const Search = () => {
   // const { clientes } = useClientes(); // <-- Mueve esto aquí
   const { members, campaign } = useSocket(socket, 'campaign-1');
 
-  const [busqueda, setBusqueda] = useState("188827497");
+  const [busqueda, setBusqueda] = useState("192453976");
   const [resultados, setResultados] = useState([]);
   const [error, setError] = useState("");
 

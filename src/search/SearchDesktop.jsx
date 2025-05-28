@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styles from './SearchDesktop.module.css';
-import { FaSearch, } from "react-icons/fa";
+
 import { CiSearch } from "react-icons/ci";
 import { io } from "socket.io-client";
 import useSocket from '../Hooks/useSocket';
 import Boleto from './../Item/Boleto'
+import BoletoNot from '../Item/BoletoNot';
 //import useClientes from '../Hooks/useClientes';
 
 const socket = io("http://bc-api.estelarbet.net");
@@ -35,7 +36,7 @@ const SearchDesktop = () => {
   const { members, campaign } = useSocket(socket, 'campaign-1'); // igual que en mobile
 
   //const { clientes } = useClientes(); // <-- Mueve esto aquí
-  const [rut, setRut] = useState('188827497');
+  const [rut, setRut] = useState('192453976');
   const [user, setUser] = useState(null);
   const [rewards, setRewards] = useState([]);
   const [error, setError] = useState('');
@@ -164,13 +165,17 @@ const SearchDesktop = () => {
           {user && rewards.length > 0 && (
             <div className={`${styles['rewards-box']} ${rewards.length > 0 ? styles['rewards-box-enter'] : ''}`}>
               <h3>PREMIOS POR GANAR</h3>
-              {rewards.map((reward, index) => (
-                
-                <Boleto 
-                check = {user.check}
-                rewardDesktop={reward} 
-                 key={index} />
-              ))}
+              {user.check ? (
+                rewards.map((reward, index) => (
+                  <Boleto
+                    check={user.check}
+                    rewardDesktop={reward}
+                    key={index}
+                  />
+                ))
+              ) : (
+                <BoletoNot />
+              )}
             </div>
           )}
         </div>
