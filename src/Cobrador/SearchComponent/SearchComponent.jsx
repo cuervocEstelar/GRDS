@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./SearchComponent.css";
 
-import highlightRow from './../helpers/highlightRow';
+import highlightRow from '../../helpers/highlightRow';
 const SearchComponent = () => {
 
     const [searchValue, setSearchValue] = useState(""); // Estado para almacenar el valor de búsqueda

@@ -36,7 +36,7 @@ const SearchDesktop = () => {
   const { members, campaign } = useSocket(socket, 'campaign-1'); // igual que en mobile
 
   //const { clientes } = useClientes(); // <-- Mueve esto aquí
-  const [rut, setRut] = useState('192453976');
+  const [rut, setRut] = useState('188827497');
   const [user, setUser] = useState(null);
   const [rewards, setRewards] = useState([]);
   const [error, setError] = useState('');
@@ -71,8 +71,8 @@ const SearchDesktop = () => {
         (u) => limpiarRUT(u.rut) === limpiarRUT(rut)
       );
 
-      console.log("Encontrado:", encontrado); // Para depuració
-      
+      //console.log("Encontrado:", encontrado); // Para depuració
+
       if (encontrado) {
         setUser({
           name: encontrado.fullName,
@@ -80,26 +80,6 @@ const SearchDesktop = () => {
           check: encontrado.check,
         });
 
-        // const premios = [
-        //   {
-        //     title: 'PAPAS FRITAS',
-        //     description: 'Regístrate y obtén el primer premio',
-        //     status: encontrado.isRegistered === 'true' ? 'Ganado' : 'Pendiente',
-        //     icon: '/icons/fries.png'
-        //   },
-        //   {
-        //     title: 'BEBIDA A ELECCIÓN',
-        //     description: 'Verifica tu cuenta',
-        //     status: encontrado.isVerified === 'true' ? 'Ganado' : 'Pendiente',
-        //     icon: '/icons/drink.png'
-        //   },
-        //   {
-        //     title: 'SMASH BURGER',
-        //     description: 'Haz un recargo mínimo',
-        //     status: encontrado.didDeposit === 'true' ? 'Ganado' : 'Pendiente',
-        //     icon: '/icons/burger.png'
-        //   }
-        // ];
 
         setRewards(campaign.awards);
         setError('');
@@ -119,25 +99,25 @@ const SearchDesktop = () => {
   return (
     <section className={styles['checker-container']}>
       <div className={styles['checker-box']}>
-      <div className={`${styles['checker-content']} ${user ? styles['start'] : styles['center']}`}>
+        <div className={`${styles['checker-content']} ${user ? styles['start'] : styles['center']}`}>
 
           <div className={styles['checker-search']}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <path d="M42 42L33.3 33.3M38 22C38 30.8366 30.8366 38 22 38C13.1634 38 6 30.8366 6 22C6 13.1634 13.1634 6 22 6C30.8366 6 38 13.1634 38 22Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M42 42L33.3 33.3M38 22C38 30.8366 30.8366 38 22 38C13.1634 38 6 30.8366 6 22C6 13.1634 13.1634 6 22 6C30.8366 6 38 13.1634 38 22Z" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
             <h2 className={styles['checker-title']}>VERIFICA TU PARTICIPACIÓN</h2>
             <p className={styles['checker-text']}>Busca con tu rut y verifica tu estado para cobrar los premios</p>
 
             {user && (
-             <div className={styles['checker-user']}>
-             <div className={styles['user-info-row']}>
-                  <span>Usuario</span> 
+              <div className={styles['checker-user']}>
+                <div className={styles['user-info-row']}>
+                  <span>Usuario</span>
                   <strong className='user-info-value'>{user.name}</strong>
                 </div>
-               <div className={styles['user-info-row']}>
+                <div className={styles['user-info-row']}>
                   <span>Rut</span>
                   <strong className='user-info-value'>{user.rut}</strong>
-               </div>
+                </div>
               </div>
             )}
 
@@ -148,10 +128,10 @@ const SearchDesktop = () => {
                 value={rut}
                 onChange={(e) => setRut(e.target.value)}
               />
-            
-                <button className={styles['clear-btn']} > <CiSearch />
- </button>
-              
+
+              <button className={styles['clear-btn']} > <CiSearch />
+              </button>
+
 
               <button className={styles['search-btn']} onClick={handleSearch}>Buscar</button>
             </div>

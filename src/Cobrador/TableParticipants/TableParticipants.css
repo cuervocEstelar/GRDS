@@ -1,0 +1,104 @@
+.participantesContainer{
+
+background-color: #f78ccc;
+border-radius: 10px;
+padding: 20px;
+font-family: "Sora", sans-serif; 
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.participanteItem{
+display: flex;
+gap: 1rem;
+background-color: white;
+border-radius: 10px;
+padding: 20px;
+}
+
+.userInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.userInfo .foto{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+
+
+}
+
+.nombre{
+    font-weight: bold;
+    max-width: 4rem;
+}
+
+.rut{
+    color: #777;
+}
+
+.telefono{
+    color: #777;
+}
+
+
+
+
+.premios{
+    display: flex ;
+    gap: 1rem;
+}
+
+.premioItem{
+   
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+}
+
+
+.btn-entregar {
+    border-radius: 8px;
+    background: #FA9DD4;
+    display: flex;
+    padding: 0.5rem 0.75rem;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-entregar:hover {
+    background: #f78ccc;
+    transform: scale(1.02);
+}
+
+.btn-entregar:active {
+    background: #e57bb7;
+    transform: scale(0.98);
+}

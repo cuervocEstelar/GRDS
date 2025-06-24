@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ValidatorComponent from './../CodeVlidator/ValidatorComponent'
+import ValidatorComponent from '../Cobrador/CodeVlidator/ValidatorComponent'
 
 const Cobrador = () => {
   return (

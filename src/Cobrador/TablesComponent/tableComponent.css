@@ -1,4 +1,42 @@
+
+
+
 table{
+background-color: #f78ccc;
+padding: 2rem;
+border-radius: 10px;
+color: black;
+font-family: "Sora", sans-serif;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* table{
 
     width: 100%;
     border-collapse: collapse;
@@ -69,11 +107,11 @@ table th {
 
     table td {
         font-size: 14px;
-    }
+    } 
 
     .highlight {
-        background-color: white; /* Fondo amarillo para resaltar */
-        transition: background-color 0.5s ease; /* Suaviza la transición */
+        background-color: white; 
+        transition: background-color 0.5s ease; 
         color: black !important;
         border: 2px solid #ccc;
     }
@@ -81,8 +119,7 @@ table th {
 
 
 .highlight {
-    background-color: white; /* Fondo amarillo para resaltar */
-    transition: background-color 0.5s ease; /* Suaviza la transición */
-    color: black !important;
+    background-color: white; 
+    transition: background-color 0.5s ease; 
     border: 2px solid #ccc;
-}
+}*/

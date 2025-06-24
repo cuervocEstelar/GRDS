@@ -1,4 +1,3 @@
-import React from 'react'
 import ContentContainer from '../ContentContainer/ContentContainer'
 import Header from '../header/Header'
 import StepContainer from '../StepComponent/StepContainer'
